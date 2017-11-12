@@ -15,8 +15,8 @@ export class LoginPage {
   // If you're using the username field with or without email, make
   // sure to add it to the type
   account: { email: string, password: string } = {
-    email: 'test@example.com',
-    password: 'test'
+    email: 'mjogaret@gmail.com',
+    password: '17Gardenia29'
   };
 
   // Our translated text strings
