@@ -12,14 +12,18 @@
   "MAP_TITLE": "Carte",
 
   "TUTORIAL_SLIDE1_TITLE": "Les tables MN90",
-  "TUTORIAL_SLIDE1_DESCRIPTION": "<b>Ionic Super Starter</b> est un kit complet pour démarrer sur Ionic. Il repose sur les meilleures pratiques et implémente de nombreux types de pages.",
+  "TUTORIAL_SLIDE1_DESCRIPTION": "<b>En France, les tables fédérales de la FFESSM MN90 sont utilisées pour gérer la remontée en surface. Elles ont été révisées en 1998 et légèrement modifiées (procédures d'interruption de palier).</b> ",
 
-  "TUTORIAL_SLIDE2_TITLE": "Comment utiliser le Super Starter",
-  "TUTORIAL_SLIDE2_DESCRIPTION": "Assemblez les types de pages désirés et supprimez les autres. Le kit inclut plusieurs mises en page courantes d’applications mobiles, comme les pages de connexion et d’inscription, les onglets et cette page de tutoriel.",
+  "TUTORIAL_SLIDE2_TITLE": "Courbe de sécurité",
+  "TUTORIAL_SLIDE2_DESCRIPTION": "C’est le temps à une profondeur donnée où l’on peut rester sans avoir à faire de palier de décompression en plongée sous-marine avant le retour à la surface.",
 
-  "TUTORIAL_SLIDE3_TITLE": "Pour commencer",
-  "TUTORIAL_SLIDE3_DESCRIPTION": "Si vous avez besoin d’aide, consultez le README du Super Starter pour un tutoriel complet.",
+  "TUTORIAL_SLIDE3_TITLE": "Domaine de validité",
+  "TUTORIAL_SLIDE3_DESCRIPTION": "2 plongées par 24 heures, uniquement en plongée loisir, pas d'effort, limitée à 60 mètres de profondeur.",
 
+  "TUTORIAL_SLIDE4_TITLE": "Lecture directe",
+  "TUTORIAL_SLIDE4_DESCRIPTION": "<ul><li>Plongée à l'air,</li><li> décompression à l'air,</li><li> vitesse de remontée de <b>15 à 17m/min </b>jusqu'au premier palier puis <b>6m/min </b>ensuite,</li> <li>Altitude > 300m,</li><li> 2ème plongée espacée de la première de 12 heures. </li>",
+ 
+  
   "SETTINGS_TITLE": "Paramètres",
   "SETTINGS_OPTION1": "Option 1",
   "SETTINGS_OPTION2": "Option 2",

@@ -48,12 +48,12 @@ export class TutorialPage {
             description: values.TUTORIAL_SLIDE3_DESCRIPTION,
             image: 'assets/img/prets.png',
           },
-          
           {
             title: values.TUTORIAL_SLIDE4_TITLE,
             description: values.TUTORIAL_SLIDE4_DESCRIPTION,
             image: 'assets/img/prets.png',
-          }
+          },
+          
         ];
       });
   }
