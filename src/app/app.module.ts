@@ -51,7 +51,11 @@ export function provideSettings(storage: Storage) {
       }
     }),
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(
+      {
+        name: '__mydb',
+        driverOrder: ['indexeddb', 'sqlite', 'websql']
+   })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -69,4 +73,16 @@ export function provideSettings(storage: Storage) {
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private storage: Storage) {
+
+  // set a key/value
+  storage.set('name', 'Max');
+
+  // Or to get a key/value pair
+  storage.get('age').then((val) => {
+    console.log('Your age is', val);
+  });
+  }
+ 
+}
