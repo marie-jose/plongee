@@ -4,22 +4,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Camera } from '@ionic-native/camera';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { IonicStorageModule, Storage } from '@ionic/storage';
+import { IonicStorageModule, Storage} from '@ionic/storage';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 import { Items } from '../mocks/providers/items';
-import { Settings } from '../providers/providers';
-import { User } from '../providers/providers';
-import { Api } from '../providers/providers';
+import { Settings, User, Api } from '../providers/providers';
 import { MyApp } from './app.component';
+
+ 
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+
+
+
 
 export function provideSettings(storage: Storage) {
   /**
@@ -36,6 +39,13 @@ export function provideSettings(storage: Storage) {
   });
 }
 
+providers: [
+  StatusBar,
+  SplashScreen,
+  Storage,
+  SQLite,
+  { provide: ErrorHandler, useClass: IonicErrorHandler }
+  ]
 @NgModule({
   declarations: [
     MyApp
@@ -73,16 +83,23 @@ export function provideSettings(storage: Storage) {
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
+
 export class AppModule {
-  constructor(private storage: Storage) {
-
-  // set a key/value
-  storage.set('name', 'Max');
-
-  // Or to get a key/value pair
-  storage.get('age').then((val) => {
-    console.log('Your age is', val);
-  });
+  //constructor(private storage: Storage) {}
+  constructor(private sqlite: SQLite) {
+    this.sqlite.create({
+      name: 'data.db',
+      location: 'default'
+    })
+      .then((db: SQLiteObject) => {
+    
+    
+        db.executeSql('create table Prof10m(name VARCHAR(32))', {})
+          .then(() => console.log('Executed SQL'))
+          .catch(e => console.log(e));
+    
+    
+      })
+      .catch(e => console.log(e));
   }
- 
-}
+}  

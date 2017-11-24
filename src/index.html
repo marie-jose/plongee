@@ -30,6 +30,19 @@
 
   <!-- Ionic's root component and where the app will load -->
   <ion-app></ion-app>
+  <ion-content passing ="true">
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label">Message :</span>
+        <input type="text" ng-model="newMessage">
+      </label>
+    </div>
+    <div>
+      <button class ="button button-block" ng-click="save(newMessage")> Save</button>
+      <button class="button button-block" ng-click="loa()">Load</button>
+      <p>{{ statusMessage}}</p>
+    </div>
+  </ion-content>
 
   <!-- The polyfills js is generated during the build process -->
   <script src="build/polyfills.js"></script>
