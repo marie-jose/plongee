@@ -12,7 +12,7 @@ import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 import { Items } from '../mocks/providers/items';
 import { Settings, User, Api } from '../providers/providers';
 import { MyApp } from './app.component';
-
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
  
 
 // The translate loader needs to know where to load i18n files
@@ -20,9 +20,6 @@ import { MyApp } from './app.component';
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
-
-
-
 
 export function provideSettings(storage: Storage) {
   /**
@@ -39,13 +36,14 @@ export function provideSettings(storage: Storage) {
   });
 }
 
-providers: [
+/* providers: [
   StatusBar,
   SplashScreen,
   Storage,
   SQLite,
   { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
+  */
 @NgModule({
   declarations: [
     MyApp
@@ -88,13 +86,13 @@ export class AppModule {
   //constructor(private storage: Storage) {}
   constructor(private sqlite: SQLite) {
     this.sqlite.create({
-      name: 'data.db',
+      name: 'plongee.db',
       location: 'default'
     })
       .then((db: SQLiteObject) => {
     
     
-        db.executeSql('create table Prof10m(name VARCHAR(32))', {})
+        db.executeSql('create table Prof10m(name VARCHAR(11))', {})
           .then(() => console.log('Executed SQL'))
           .catch(e => console.log(e));
     
