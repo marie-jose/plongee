@@ -1,33 +1,19 @@
 import { Component, ViewChild } from '@angular/core';
+import { Config, Nav, Platform } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
-import { Config, Nav, Platform } from 'ionic-angular';
-import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
-import { FirstRunPage } from '../pages/pages';
-import { Settings } from '../providers/providers';
+
+import { TabsPage } from '../pages/tabs/tabs';
+
 
 @Component({
-  template: `<ion-menu [content]="content">
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Pages</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
-    <ion-content>
-      <ion-list>
-        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-          {{p.title}}
-        </button>
-      </ion-list>
-    </ion-content>
-
-  </ion-menu>
-  <ion-nav #content [root]="rootPage"></ion-nav>`
+  templateUrl: 'app.html'
 })
+
+    
 export class MyApp {
-  rootPage = FirstRunPage;
+  rootPage: any = TabsPage;
 
   @ViewChild(Nav) nav: Nav;
 
@@ -42,10 +28,16 @@ export class MyApp {
     { title: 'Master Detail', component: 'ListMasterPage' },
     { title: 'Menu', component: 'MenuPage' },
     { title: 'Settings', component: 'SettingsPage' },
-    { title: 'Search', component: 'SearchPage' }
+    { title: 'Search', component: 'SearchPage' },
+    { title: 'Native-Storage', component: 'Native-storagePage' },
+    { title: 'Sqlite', component: 'SqlitePage' }
   ]
 
-  constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
+  constructor(private translate: TranslateService, 
+              private platform: Platform,
+              private config: Config,
+              private statusBar: StatusBar, 
+              private splashScreen: SplashScreen) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
